@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
   types: string[] = [];
   selected: string | null = null; 
   fighters: Pokemon[] = [];
+  add: boolean = true;
   
   ngOnInit(): void {
     let db = localStorage.getItem('ARRAY')
@@ -56,6 +57,10 @@ export class AppComponent implements OnInit {
   public change = (event: Event, pokemon: Pokemon) => {
     this.list=!this.list;
     this.pokemon = pokemon;
+  }
+
+  public setadd = ()=>{
+    this.add=!this.add;
   }
 
   public setfav = (pokemon: Pokemon) => {

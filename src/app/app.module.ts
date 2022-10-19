@@ -13,6 +13,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { FavcardComponent } from './components/favcard/favcard.component';
 import { FightersComponent } from './components/fighters/fighters.component';
 import { BattleComponent } from './battle/battle.component';
+import { AddpokeComponent } from './components/addpoke/addpoke.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BattleComponent } from './battle/battle.component';
     FilterComponent,
     FavcardComponent,
     FightersComponent,
-    BattleComponent
+    BattleComponent,
+    AddpokeComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

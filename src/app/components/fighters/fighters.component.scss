@@ -81,3 +81,10 @@ img{
     color: lightness($color: #000000);
     font-weight: lighter;
 }
+
+
+@media (max-width: 440px) {
+    .main{
+        font-size: .8em;
+    }
+    }

@@ -10,14 +10,18 @@
     <app-filter [list]="list" [types]="types" [pokemons]="pokemons" [setPokemons]="setPokemons"
     [colours]="colours" [setSelected]="setSelected" *ngIf="!battle"></app-filter>
     <app-fighters [list]="list" [fighters]="fighters" [change]="change" [setbattle]="setbattle"></app-fighters>
+    <app-addpoke [setadd]="setadd" [list]="list"></app-addpoke>
   </div>
-
-  <ng-container *ngIf="pokemons.length>1 else nopokemons">
-      <div *ngIf="list && !battle" ><app-list [pokemons]="pokemons" [change]="change" [setfav]="setfav"
-        [selected]="selected" [setfighter]="setfighter"></app-list></div>
-      <div *ngIf="!list  && !battle"><app-view [pokemon]="pokemon" [change]="change" [setfav]="setfav"></app-view></div>
-      <div *ngIf="battle"><app-battle [fighters]="fighters" [colours]="colours"></app-battle></div>
-  </ng-container>
+  
+  <div style="height:100%">
+    <ng-container *ngIf="pokemons.length>1 else nopokemons">
+      <ng-container *ngIf="list && !battle && !add" ><app-list [pokemons]="pokemons" [change]="change" [setfav]="setfav"
+        [selected]="selected" [setfighter]="setfighter"></app-list></ng-container>
+        <ng-container *ngIf="!list  && !battle  && !add"><app-view [pokemon]="pokemon" [change]="change" [setfav]="setfav"></app-view></ng-container>
+        <ng-container *ngIf="battle  && !add"><app-battle [fighters]="fighters" [colours]="colours"></app-battle></ng-container>
+        <ng-container *ngIf="add"><app-add [setadd]="setadd"></app-add></ng-container>
+      </ng-container>
+  </div>
 
 
 

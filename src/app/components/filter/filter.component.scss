@@ -69,3 +69,13 @@ span{
     background-color: deepskyblue;
     color: white;
 }
+
+
+@media (max-width: 440px) {
+    .main{
+        font-size: .8em;
+    }
+    .container{
+        top: 13em;
+    }
+}

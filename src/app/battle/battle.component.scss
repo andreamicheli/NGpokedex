@@ -176,3 +176,20 @@ p{
     cursor: pointer;
   }
 
+
+  @media (max-width: 440px) {
+.points{
+        font-size: .9em;
+    }
+h1{
+    font-size: 1em;
+}
+h2{
+    font-size: 1em;
+}
+.tag{
+    font-size: .9em;
+}
+}
+    
+
