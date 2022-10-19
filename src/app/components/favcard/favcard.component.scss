@@ -4,8 +4,7 @@
     padding: 1em;
     border-radius: 10px;
     justify-content: space-between;
-    max-width: 27em;
-    min-width: 24em;
+    min-width: 18em;
     // margin-bottom: 2em;
 }
 
@@ -81,4 +80,10 @@ img{
 
 .favico:hover{
     scale: 1.3;
+}
+
+@media (min-width: 800px) {
+    .card{
+        width: 23em;
+    }
 }

@@ -5,7 +5,8 @@
     max-height: 72vh;
     border-radius: 10px;
     overflow-y: scroll;
-    max-width: fit-content;
+    width: fit-content;
+    min-width: fit-content;
     gap: 2em;
     align-items: center;
 
@@ -16,8 +17,13 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
 
-
+}
+@media (max-width: 440px) {
+    .wrapper{
+        max-height: 60vh;
+        border-radius: 25px;
     }
 
 }
