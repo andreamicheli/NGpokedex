@@ -1,0 +1,25 @@
+    <ng-container *ngIf="selected==null || pokemon.types[0].type.name==selected || (!!pokemon.types[1] && pokemon.types[1].type.name==selected)">
+        <div [ngStyle]="{backgroundColor: pokemon.color, borderRadius: '15px'}" class="card">
+            
+            <div class="left">
+                {{pokemon.name |  titlecase }}
+                <div>
+                    <div class="tag" *ngFor="let type of pokemon.types">{{type.type.name |  titlecase }}</div>
+                </div>
+                <div>
+                    <mat-icon class="favico" aria-hidden="false" aria-label="favorite" fontIcon="{{pokemon.fav ? 'favorite' : 'favorite_border'}}"
+                    (click)="pokemon.fav=!pokemon.fav; setfav(pokemon);" id="icon"></mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="fight" fontIcon="{{pokemon.fight ? 'offline_bolt' : 'bolt'}}" class="favico"
+                    (click)="pokemon.fight=!pokemon.fight; setfighter(pokemon)"></mat-icon>
+                </div>
+            </div>
+            
+            <div class="right"  (click)="change($event, pokemon)">
+                <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_forward" id="arrow"></mat-icon>
+                <div id="imgcontainer">
+                    <img src="{{pokemon.sprites.other.home.front_default}}" alt="{{pokemon.name}} image">
+                </div>
+            </div>
+            
+        </div>
+    </ng-container>

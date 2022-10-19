@@ -1,0 +1,23 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    max-height: 72vh;
+    border-radius: 10px;
+    overflow-y: scroll;
+    max-width: fit-content;
+    gap: 2em;
+    align-items: center;
+
+}
+
+@media (min-width: 800px) {
+    .wrapper{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+
+    }
+
+}

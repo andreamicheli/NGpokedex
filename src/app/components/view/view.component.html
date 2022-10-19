@@ -1,0 +1,37 @@
+<ng-container *ngIf="!!pokemon else nopoke">
+    <div class="header">
+        <div style="display: flex; flex-direction: column;">
+            <h1>{{pokemon.name |  titlecase }}</h1>
+            <div class="types">
+                <div class="tag" *ngFor="let type of pokemon.types">{{type.type.name |  titlecase }}</div>
+            </div>
+        </div>
+        <div [ngStyle]="{display: 'flex', gap: '1em'}">
+            <mat-icon aria-hidden="false" aria-label="favorite" fontIcon="{{pokemon.fav ? 'favorite' : 'favorite_border'}}"
+            (click)="pokemon.fav=!pokemon.fav; setfav(pokemon)" id="icon"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon" 
+            (click)="change($event, pokemon)"></mat-icon>
+        </div>
+    </div>
+    <div class="wrapper" [ngStyle]="{backgroundColor: pokemon.color}">
+        <div style="width: 100%; display:flex; justify-content: center;">
+            <div class="details">
+                <div>Experience<span>{{pokemon.base_experience}}</span></div>
+                <hr />
+                <div>Height<span>{{pokemon.height}}</span></div>
+                <hr />
+                <div>Weight<span>{{pokemon.weight}}</span></div>
+            </div>
+        </div>
+
+        <!-- <div id="imgcontainer"> -->
+            <img src="{{pokemon.image[1]}}" alt="{{pokemon.name}} image">
+        <!-- </div> -->
+    </div>
+</ng-container>
+
+
+<ng-template #nopoke>
+    <h2>ATTENZIONE</h2>
+    <p>non è stato selezionato alcun pokemon</p>
+</ng-template>

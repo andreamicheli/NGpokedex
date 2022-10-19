@@ -1,0 +1,178 @@
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    max-height: 72vh;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+
+
+.frame{
+    max-height: 30em;
+    max-width: 30em;
+    height: max-content;
+    border-radius: 15px;
+    background-color: transparent;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+@media (min-width: 800px) {
+    .wrapper{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .frame{
+        max-width: 70em;
+        max-height: 70em;
+    }
+}
+
+#enemy{
+    top: 25%;
+    left: 50%;
+    width:40%;
+    z-index: 10;
+    position: absolute;
+}
+
+#character{
+    top: 30%;
+    width:80%;
+    z-index: 20;
+    left: -12%;
+    position: absolute;
+}
+
+#wp{
+    position: relative;
+    z-index: 0;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#swords{
+    transition: all 1s;
+    position: absolute;
+    top: 28%;
+    left: -5%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    height: 17em;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    height: 7em;
+    align-items: center;
+    width: 100%;
+    margin-top: 1em;
+    justify-content: space-between;
+
+}
+
+.points{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+}
+
+.points>div{
+    height: fit-content;
+    align-items: center;
+}
+
+h3{
+    padding: 0em;
+}
+
+h1{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.legenda{
+    max-height: 100%;
+}
+
+hr{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+span{
+    font-weight: bold;
+}
+
+p{
+    padding: 0;
+    margin: .2em;
+    align-items: center;
+}
+
+.tag{
+    border-radius: 25px;
+    padding-block: .3em;
+    padding-inline: .6em;
+    
+    font-size: 1em;
+    color: white;
+
+    max-width: fit-content;
+}
+
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: white;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    padding: 1em;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    top: 5%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    align-self: start;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
