@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/pokemon';
+import { Direction, Pokemon } from 'src/app/pokemon';
 
 @Component({
   selector: 'app-favorites',
@@ -11,7 +11,7 @@ export class FavoritesComponent implements OnInit {
   constructor() { }
 
   @Input() favs: Pokemon[];
-  @Input() list: boolean;
+  @Input() nav: Direction;
   @Input() change: any;
 
   ngOnInit(): void {

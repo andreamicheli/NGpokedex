@@ -47,6 +47,9 @@ export class AddComponent implements OnInit {
     console.log(this.selected)
   }
 
+  returnStyle() {
+
+  }
 
   onSubmit() {
     console.log(this.pokemonForm)

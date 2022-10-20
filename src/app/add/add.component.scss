@@ -7,10 +7,11 @@
 
 .header{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    // width: 100%;
+    gap: 1em;
     height: fit-content;
     margin-bottom: 2em;
 }
@@ -83,6 +84,10 @@ input.ng-valid{
     border-style: solid;
     border-color: cyan;
     background-color: white;
+}
+
+#icon{
+    cursor: pointer;
 }
 
 
@@ -185,6 +190,8 @@ button:hover{
     background: linear-gradient(-45deg, #00ddff, #004cff, rgb(0, 217, 255), rgb(255, 255, 255));
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
+    cursor: pointer;
+
 }
 
 button:active{
@@ -209,8 +216,9 @@ span{
         flex-direction: row;
     }
     img{
-        max-width: 30em;
-        max-height: 30em;
+        width: 100%;
+        max-width: 50em;
+        max-height: 50em;
     }
     // .imgcontainer{
     //     width: fit-content;

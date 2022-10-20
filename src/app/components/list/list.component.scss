@@ -7,10 +7,11 @@
     overflow-y: scroll;
     width: fit-content;
     min-width: fit-content;
-    gap: 2em;
     align-items: center;
+   
 
 }
+
 
 @media (min-width: 800px) {
     .wrapper{

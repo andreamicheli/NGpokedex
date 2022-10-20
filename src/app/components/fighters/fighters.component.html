@@ -1,9 +1,9 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: list ? '#000000':'#ffffff'}">Fighters</div>
-    <div class="row"> 
+    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Fighters</div>
+    <div class="row">
         <div class="{{(fighters.length==2) ? 'ready' : 'wrapper'}}" (click)="gobattle()">
-            <div class="container"  *ngIf="fighters.length>0 else nofighter">
-                
+            <div class="container" *ngIf="fighters.length>0 else nofighter">
+
                 <div *ngFor="let fighter of fighters" class="container" style="cursor: pointer;">
                     <img src="{{fighter.image[1]}}">
                 </div>

@@ -1,8 +1,8 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: list ? '#000000':'#ffffff'}">Add</div>
+    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Add</div>
     <!-- <div class="label" ">Add</div> -->
-    <div class="wrapper" (click)="add=!add; setadd()">
-            {{add ? '-':'+'}}
+    <div class="wrapper" (click)="setadd()">
+        {{nav.current==='add' ? '-':'+'}}
     </div>
 
 

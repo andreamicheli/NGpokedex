@@ -1,16 +1,17 @@
 <ng-container *ngIf="!!pokemon else nopoke">
     <div class="header">
-        <div style="display: flex; flex-direction: column;">
-            <h1>{{pokemon.name |  titlecase }}</h1>
-            <div class="types">
-                <div class="tag" *ngFor="let type of pokemon.types">{{type.type.name |  titlecase }}</div>
-            </div>
-        </div>
-        <div [ngStyle]="{display: 'flex', gap: '1em'}">
-            <mat-icon aria-hidden="false" aria-label="favorite" fontIcon="{{pokemon.fav ? 'favorite' : 'favorite_border'}}"
-            (click)="pokemon.fav=!pokemon.fav; setfav(pokemon)" id="icon"></mat-icon>
-            <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon" 
+        <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
             (click)="change($event, pokemon)"></mat-icon>
+        <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column;">
+                <h1>{{pokemon.name | titlecase }}</h1>
+                <div class="types">
+                    <div class="tag" *ngFor="let type of pokemon.types">{{type.type.name | titlecase }}</div>
+                </div>
+            </div>
+            <mat-icon aria-hidden="false" aria-label="favorite"
+                fontIcon="{{pokemon.fav ? 'favorite' : 'favorite_border'}}"
+                (click)="pokemon.fav=!pokemon.fav; setfav(pokemon)" id="icon"></mat-icon>
         </div>
     </div>
     <div class="wrapper" [ngStyle]="{backgroundColor: pokemon.color}">
@@ -25,7 +26,7 @@
         </div>
 
         <!-- <div id="imgcontainer"> -->
-            <img src="{{pokemon.image[1]}}" alt="{{pokemon.name}} image">
+        <img src="{{pokemon.image[1]}}" alt="{{pokemon.name}} image">
         <!-- </div> -->
     </div>
 </ng-container>

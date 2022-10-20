@@ -1,6 +1,6 @@
 import { AnyCatcher } from "rxjs/internal/AnyCatcher";
 
-export interface Pokemon{
+export interface Pokemon {
     name: string;
     types: {
         slot: number;
@@ -16,9 +16,9 @@ export interface Pokemon{
 
     abilities?: any;
     base_experience: number;
-    forms?: any; 
-    game_indices?: any; 
-    height: any; 
+    forms?: any;
+    game_indices?: any;
+    height: any;
     held_items?: any;
     id?: number;
     is_default?: boolean;
@@ -46,14 +46,18 @@ export interface Pokemon{
 }
 
 
-export interface PokeGeneral{
+export interface PokeGeneral {
     name: string;
     url: string;
 }
 
-export interface API{
+export interface API {
     count: number;
     next: string;
     previous: any;
     results: PokeGeneral[];
 }
+
+export type Direction = { current: 'list' | 'view' | 'fight' | 'add', prev: 'list' | 'view' | 'fight' | 'add' | null }
+
+

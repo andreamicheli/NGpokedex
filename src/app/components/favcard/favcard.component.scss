@@ -5,7 +5,7 @@
     border-radius: 10px;
     justify-content: space-between;
     min-width: 18em;
-    // margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 .card:hover{
@@ -85,6 +85,7 @@ img{
 @media (min-width: 800px) {
     .card{
         width: 23em;
+        margin-left: 2em;
     }
 }
 

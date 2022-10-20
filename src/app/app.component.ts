@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QueueScheduler } from 'rxjs/internal/scheduler/QueueScheduler';
-import { PokeGeneral, Pokemon } from './pokemon';
+import { PokeGeneral, Pokemon, Direction } from './pokemon';
 import { PokeapiService } from './services/pokeapi.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -35,104 +37,120 @@ export class AppComponent implements OnInit {
     "fairy": '#D685AD',
   };
 
-  list: boolean = true;
+
+
   battle: boolean = false;
   pokemonsGeneral: PokeGeneral[] = [];
   pokemon: Pokemon | undefined = undefined;
   pokemons: Pokemon[] = [];
   favs: Pokemon[] = [];
   types: string[] = [];
-  selected: string | null = null; 
+  selected: string | null = null;
   fighters: Pokemon[] = [];
-  add: boolean = true;
-  
+  nav: Direction = { current: 'list', prev: null };
+
   ngOnInit(): void {
     let db = localStorage.getItem('ARRAY')
     this.getPokemons();
-    if(!!db){
-    this.favs=JSON.parse(db)}
-    else {this.favs=[]; console.log("db not worked")}
+    if (!!db) {
+      this.favs = JSON.parse(db)
+    }
+    else { this.favs = []; console.log("db not worked") }
+  }
+  public setlist = () => {
+    if (this.nav.current === 'list') { return }
+    else { this.nav.prev = this.nav.current; this.nav.current = 'list' }
+
   }
 
   public change = (event: Event, pokemon: Pokemon) => {
-    this.list=!this.list;
     this.pokemon = pokemon;
+    if (this.nav.current === 'view') { this.nav.current = this.nav.prev!; this.nav.prev = 'list' }
+    else { this.nav.prev = this.nav.current; this.nav.current = 'view' }
+
   }
 
-  public setadd = ()=>{
-    this.add=!this.add;
+  public setadd = () => {
+    if (this.nav.current === 'add') { this.nav.current = this.nav.prev!; this.nav.prev = 'list' }
+    else { this.nav.prev = this.nav.current; this.nav.current = 'add' }
   }
 
-  public setfav = (pokemon: Pokemon) => {
-    if (this.favs.includes(pokemon)){
-     this.favs.splice(this.favs.indexOf(pokemon),1)
+  public setbattle = () => {
+    if (this.nav.current === 'fight') { this.nav.current = this.nav.prev!; this.nav.prev = 'list' }
+    else { this.nav.prev = this.nav.current; this.nav.current = 'fight' }
+  }
+
+  public setfav = (pokemon: Pokemon) => {
+    if (this.favs.includes(pokemon)) {
+      this.favs.splice(this.favs.indexOf(pokemon), 1)
     }
-    else{
-    this.favs.push(pokemon)
-    if (this.favs.length>3) {
-      let temp:Pokemon|undefined = this.favs.shift()
-      if(!!temp) temp.fav=false}}
+    else {
+      this.favs.push(pokemon)
+      if (this.favs.length > 3) {
+        let temp: Pokemon | undefined = this.favs.shift()
+        if (!!temp) temp.fav = false
+      }
+    }
     localStorage.setItem('ARRAY', JSON.stringify(this.favs))
   }
 
-  public setfighter = (pokemon: Pokemon) => {
-    if (this.fighters.includes(pokemon)){
-     this.fighters.splice(this.fighters.indexOf(pokemon),1)
+  public setfighter = (pokemon: Pokemon) => {
+    if (this.fighters.includes(pokemon)) {
+      this.fighters.splice(this.fighters.indexOf(pokemon), 1)
     }
-    else{
-    this.fighters.push(pokemon)
-    if (this.fighters.length>2) {
-      let temp:Pokemon|undefined = this.fighters.shift()
-      if(!!temp) temp.fight=false
-    }}
+    else {
+      this.fighters.push(pokemon)
+      if (this.fighters.length > 2) {
+        let temp: Pokemon | undefined = this.fighters.shift()
+        if (!!temp) temp.fight = false
+      }
+    }
   }
 
   shuffle(array: any[]) {
-    let currentIndex = array.length,  randomIndex;
-  
+    let currentIndex = array.length, randomIndex;
+
     while (currentIndex != 0) {
-  
+
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-  
+
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex], array[currentIndex]];
     }
-  
+
     return array;
   }
 
   public setTypes = (pokemons: Pokemon[]) => {
-    for (let pokemon of pokemons){
-      if(!this.types.includes(pokemon.types[0].type.name)){
+    for (let pokemon of pokemons) {
+      if (!this.types.includes(pokemon.types[0].type.name)) {
         this.types.push(pokemon.types[0].type.name)
       }
     }
   }
 
-  public setPokemons = (pokemons: Pokemon[]) =>{
+  public setPokemons = (pokemons: Pokemon[]) => {
     this.pokemons = pokemons;
   }
-  
-  public setSelected = (selected: string | null) =>{
+
+  public setSelected = (selected: string | null) => {
     this.selected = selected;
   }
 
-  public setbattle = ()=>{
-    this.list=true;
-    this.battle=!this.battle;
-  } 
+
 
   getPokemons(): void {
     this.pokeService.getPokemonsGeneral()
-      .subscribe(response => {this.pokemonsGeneral = response.results;
+      .subscribe(response => {
+        this.pokemonsGeneral = response.results;
         // console.log(this.pokemonsGeneral);
-        this.pokemonsGeneral=this.shuffle(this.pokemonsGeneral)
-        response.results.forEach(pokemonGeneral =>{
-            this.pokeService.getPokemon(pokemonGeneral.name)
-              .subscribe((response) => {
-                this.pokemons.push(
-                  {
+        this.pokemonsGeneral = this.shuffle(this.pokemonsGeneral)
+        response.results.forEach(pokemonGeneral => {
+          this.pokeService.getPokemon(pokemonGeneral.name)
+            .subscribe((response) => {
+              this.pokemons.push(
+                {
                   name: response.name,
                   types: response.types,
                   sprites: response.sprites,
@@ -145,15 +163,15 @@ export class AppComponent implements OnInit {
                   fav: false,
                   fight: false,
                 }
-                );
-                this.setTypes(this.pokemons)
-              })
-          })
-        });
+              );
+              this.setTypes(this.pokemons)
+            })
+        })
+      });
   }
 
 
 
-  
+
 
 }

@@ -1,8 +1,8 @@
 <div class="wrapper">
     <div class="header">
-        <div class="h2">Add a new Pokémon</div>
         <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
             (click)="setadd()"></mat-icon>
+        <div class="h2">Add a new Pokémon</div>
     </div>
 
     <div class="main">
@@ -15,16 +15,15 @@
 
             <div class="sector">
                 <label for="type">Type: </label>
-                {{!!selected && selected!==''}}
-                <div class="box" class="{{selected!=null ? 'valid' : 'invalid'}}"
-                    [ngStyle]="(!!selected && selected!=='') ? {backgroundColor: colours[selected], color: '#ffffff'} : {}"
-                    [ngStyle]="selected=='' ? {borderStyle: 'none'}:{}">
+                <div class="box" [ngClass]="selected === null ? 'invalid' : ''" [ngStyle]="(!!selected && selected!=='') ? {'background-color': colours[selected], color: '#ffffff',  
+                borderColor: 'cyan', borderStyle:'solid', transition: 'border-color 1s ease-in'}:{}">
                     <div>
                         <div class="placeholder" (click)="setmodal()" *ngIf="!!selected">{{selected | titlecase}}<span
                                 *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
                     </div>
                     <div class="placeholder" (click)="setmodal()" *ngIf="selected==null || selected==''">Choose type
-                        <span *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+                        <span *ngIf="!modal">></span><span *ngIf="modal">v</span>
+                    </div>
                 </div>
                 <div class="modcontainer" *ngIf="modal">
                     <div *ngFor="let type of types; let i = index">

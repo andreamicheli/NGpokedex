@@ -1,12 +1,12 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: list ? '#000000':'#ffffff'}">Favorites</div>
+    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000': '#ffffff'}">Favorites</div>
     <div class="wrapper">
-        <div class="container"  *ngIf="favs.length>0 else nofav">
-            
+        <div class="container" *ngIf="favs.length>0 else nofav">
+
             <div *ngFor="let fav of favs" class="container" (click)="change($event, fav)" style="cursor: pointer;">
                 <img src="{{fav.image[1]}}">
             </div>
-            
+
         </div>
         <ng-template #nofav>
             <div class="placeholder">No one yet</div>

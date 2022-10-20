@@ -1,14 +1,18 @@
-<div class="main" *ngIf="list">
+<div class="main" *ngIf="nav.current==='list'">
     <div class="label">Filter</div>
     <div class="wrapper" [ngStyle]="!!selected ? {backgroundColor: colours[selected], color: '#ffffff'} : {}">
-            <div><div class="placeholder" (click)="setmodal()" *ngIf="!!selected">{{selected}}<span *ngIf="!modal">></span><span *ngIf="modal">v</span></div></div>
-            <div class="placeholder" (click)="setmodal()" *ngIf="selected==null">Choose type <span *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+        <div>
+            <div class="placeholder" (click)="setmodal()" *ngIf="!!selected">{{selected | titlecase}}<span
+                    *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+        </div>
+        <div class="placeholder" (click)="setmodal()" *ngIf="selected==null">Choose type <span
+                *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
     </div>
     <div class="container" *ngIf="modal">
         <div *ngFor="let type of types; let i = index">
-            <div class="tag" (click)="setType(type)"
-            (mouseover)="hovered = i" (mouseout)="hovered = -1"
-            [ngStyle]="(hovered === i || selected === type) ? {backgroundColor: colours[type], color: '#ffffff'} : {}">{{type | titlecase}}</div>
+            <div class="tag" (click)="setType(type)" (mouseover)="hovered = i" (mouseout)="hovered = -1"
+                [ngStyle]="(hovered === i || selected === type) ? {backgroundColor: colours[type], color: '#ffffff'} : {}">
+                {{type | titlecase}}</div>
             <!-- <div class="tag" (click)="filter(type); selected=type; setmodal()"
             ngStyle="{backgroundColor: colours[type]}">{{type}}</div> -->
         </div>
