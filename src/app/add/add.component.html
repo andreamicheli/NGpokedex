@@ -1,8 +1,59 @@
 <div class="wrapper">
     <div class="header">
         <div class="h2">Add a new Pokémon</div>
-        <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon" 
-        (click)="setadd()"></mat-icon>
-
+        <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
+            (click)="setadd()"></mat-icon>
     </div>
+
+    <div class="main">
+        <form class="container" [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+
+            <div class="sector">
+                <label for="name">Name: </label>
+                <input id="name" type="text" formControlName="name">
+            </div>
+
+            <div class="sector">
+                <label for="type">Type: </label>
+                {{!!selected && selected!==''}}
+                <div class="box" class="{{selected!=null ? 'valid' : 'invalid'}}"
+                    [ngStyle]="(!!selected && selected!=='') ? {backgroundColor: colours[selected], color: '#ffffff'} : {}"
+                    [ngStyle]="selected=='' ? {borderStyle: 'none'}:{}">
+                    <div>
+                        <div class="placeholder" (click)="setmodal()" *ngIf="!!selected">{{selected | titlecase}}<span
+                                *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+                    </div>
+                    <div class="placeholder" (click)="setmodal()" *ngIf="selected==null || selected==''">Choose type
+                        <span *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+                </div>
+                <div class="modcontainer" *ngIf="modal">
+                    <div *ngFor="let type of types; let i = index">
+                        <div class="tag" (click)="setType(type)" (mouseover)="hovered = i" (mouseout)="hovered = -1"
+                            [ngStyle]="(hovered === i) ? {backgroundColor: colours[type], color: '#ffffff'} : {}"
+                            [ngStyle]="(selected === type) ? {backgroundColor: colours[type], color: '#ffffff'} : {}">
+                            {{type | titlecase}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sector">
+                <label for="base_exp">Base Experience</label>
+                <input id="base_exp" type="number" formControlName="base_exp" class="number">
+            </div>
+
+            <div class="sector">
+                <label for="weight">Weight</label>
+                <input id="weight" type="number" formControlName="weight" class="number">
+                <label for="height">Height</label>
+                <input id="height" type="number" formControlName="height" class="number">
+            </div>
+
+            <button type="submit" [disabled]="pokemonForm.invalid">Done</button>
+        </form>
+
+        <div class="imgcontainer" style="height: 100%;">
+            <img src="../../assets/silhouette.jpeg" alt="new pokemon image">
+        </div>
+    </div>
+
 </div>

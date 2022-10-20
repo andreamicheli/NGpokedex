@@ -10,7 +10,7 @@
     <app-filter [list]="list" [types]="types" [pokemons]="pokemons" [setPokemons]="setPokemons"
     [colours]="colours" [setSelected]="setSelected" *ngIf="!battle"></app-filter>
     <app-fighters [list]="list" [fighters]="fighters" [change]="change" [setbattle]="setbattle"></app-fighters>
-    <app-addpoke [setadd]="setadd" [list]="list"></app-addpoke>
+    <app-addpoke [setadd]="setadd" [list]="list" [add]="add"></app-addpoke>
   </div>
   
   <div style="height:100%">
@@ -19,7 +19,7 @@
         [selected]="selected" [setfighter]="setfighter"></app-list></ng-container>
         <ng-container *ngIf="!list  && !battle  && !add"><app-view [pokemon]="pokemon" [change]="change" [setfav]="setfav"></app-view></ng-container>
         <ng-container *ngIf="battle  && !add"><app-battle [fighters]="fighters" [colours]="colours"></app-battle></ng-container>
-        <ng-container *ngIf="add"><app-add [setadd]="setadd"></app-add></ng-container>
+        <ng-container *ngIf="add"><app-add [setadd]="setadd" [types]="types" [colours]="colours"></app-add></ng-container>
       </ng-container>
   </div>
 

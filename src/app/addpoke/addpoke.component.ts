@@ -9,10 +9,9 @@ export class AddpokeComponent implements OnInit {
 
   @Input() setadd:any;
   @Input() list:boolean;
+  @Input() add:boolean;
 
   constructor() { }
-
-  add: boolean = false;
 
   ngOnInit(): void {
   }

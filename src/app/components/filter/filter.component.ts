@@ -11,9 +11,9 @@ export class FilterComponent implements OnInit {
 
   @Input() list: boolean;
   @Input() types: string[];
+  @Input() colours: any;
   @Input() pokemons: Pokemon[];
   @Input() setPokemons: any;
-  @Input() colours: any;
   @Input() setSelected: any;
 
   
