@@ -1,9 +1,35 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Search</div>
-    <div class="wrapper">
-        <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}" id="icon"
-            (click)="modal=!modal"></mat-icon>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Search</div>
+        <div class="wrapper">
+            <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}" id="icon"
+                (click)="modal=!modal"></mat-icon>
+        </div>
+
+        <div class="big">
+            <div style="display: flex; flex-direction: column">
+                <div style="display: flex; max-height: 2em;">
+                    <div style="display: flex; align-items: center; gap: .2em">
+                        <input type="text" [formControl]="name" (keyup.enter)="getPokemon()">
+                        <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
+                            (click)="getPokemon()" id="nestedsearch"
+                            [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}"></mat-icon>
+                    </div>
+                    <div style="display: flex; align-items: center; max-width: 4em; max-height: 4em;">
+                        <img *ngIf="image==='loading'"
+                            src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif">
+                        <img *ngIf="image!=='' && image!=='loading'" src="{{pokemon!.image[0]}}"
+                            (click)="modal=!modal; change($event, pokemon)" [ngStyle]="{cursor:'pointer'}">
+                    </div>
+                    <p style="width: 15em;" *ngIf="error!==''"
+                        [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">
+                        {{error}}</p>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     <div class="colcontainer" *ngIf="modal">
         <div class="rowcontainer">
@@ -21,5 +47,7 @@
         </div>
         <p *ngIf="error!==''">{{error}}</p>
     </div>
+
+
 
 </div>

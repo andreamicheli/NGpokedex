@@ -1,5 +1,10 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Fighters</div>
+    <div class="submain">
+        <mat-icon class="favico" aria-hidden="false" aria-label="favorite" fontIcon="{{'offline_bolt'}}" id="icon"
+            [ngStyle]="{color: nav.current!=='view' ? '#000000': '#ffffff'}">
+        </mat-icon>
+        <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Fighters</div>
+    </div>
     <div class="row">
         <div class="{{(fighters.length==2) ? 'ready' : 'wrapper'}}" (click)="gobattle()">
             <div class="container" *ngIf="fighters.length>0 else nofighter">

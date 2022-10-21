@@ -25,6 +25,13 @@
     cursor: pointer;
 }
 
+.top{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+    padding-right: 1em;
+}
+
 .title{
     font-size: 3em;
     text-align: center;
@@ -43,8 +50,25 @@
 }
 
 .nav{
-    margin-bottom: 1.5em;
     display: flex;
     width: 100%;
+    position: relative;
     gap: .5em;
+}
+
+.subnav{
+    display: flex;
+    flex-direction: row;
+    gap: .5em
+}
+
+@media (min-width: 740px) {
+    .top{
+        flex-direction: row;
+        align-items: center;
+    }
+    .nav{
+        justify-content: space-between;
+        width: 70%;
+    }
 }

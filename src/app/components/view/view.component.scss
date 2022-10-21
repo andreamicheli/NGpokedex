@@ -12,7 +12,6 @@
     flex-direction: column;
     color: white;
     padding-inline: 1em;
-
 }
 
 
@@ -82,7 +81,7 @@ hr{
     background-color: aliceblue;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 740px) {
     .wrapper{
         flex-direction: row;
         align-items: center;

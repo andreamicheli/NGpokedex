@@ -1,17 +1,22 @@
 <div class="wrapper">
     <!-- <div style="position: absolute; height: 43vh; width: 82vw; top:13em; background-color: transparent; z-index: 300;"
     (click)="(hover==true)?fight=true:''"></div> -->
-    <div style="display: flex; height: fit-content; justify-content: center">
+    <div style="display: flex; height: fit-content; justify-content: center; flex-direction: column; gap: 1em">
+        <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
+            (click)="setbattle()"></mat-icon>
+
+
         <div class="frame">
             <div style="position: absolute; width: 100%; height: 100%; background-color: transparent; z-index:3000"
-            (click)="!hover ? hover=true : (!fight ? fight=true : fight=false)"></div>
+                (click)="!hover ? hover=true : (!fight ? fight=true : fight=false)"></div>
             <div [ngStyle]="{filter: hover ? 'blur(2px)':''}">
                 <img src="{{fighters[1].sprites.front_default}}" alt="enemy" class="poke" id="enemy">
                 <img src="{{fighters[0].sprites.back_default}}" alt="character" class="poke" id="character">
-                <img src="../../assets/wallpaper.png" alt="background" id="wp" class="poke" >
+                <img src="../../assets/wallpaper.png" alt="background" id="wp" class="poke">
             </div>
             <div [ngStyle]="fight ? {display: 'none'}:{display: 'block'}">
-                <img src="../../assets/giphy.gif" alt="fight" id="swords" [ngStyle]="hover ? {opacity: '1', 'z-index': '1000'} : {opacity: 0, 'z-index': 0}">
+                <img src="../../assets/giphy.gif" alt="fight" id="swords"
+                    [ngStyle]="hover ? {opacity: '1', 'z-index': '1000'} : {opacity: 0, 'z-index': 0}">
             </div>
 
             <div class="modal" *ngIf="fight">
@@ -22,33 +27,37 @@
                     <img src="{{winner!.image[0]}}" style="max-width: 100%; max-height: 100;">
                 </div>
                 <p>with a total score of <span>{{totwin}}</span></p>
-                <span>VS</span> 
-                <p><span [ngStyle]="{color: colours[loser!.types[0].type.name]}">{{loser!.name | titlecase}}</span> with a score of <span>{{totlose}}</span></p>
-                
+                <span>VS</span>
+                <p><span [ngStyle]="{color: colours[loser!.types[0].type.name]}">{{loser!.name | titlecase}}</span> with
+                    a score of <span>{{totlose}}</span></p>
+
                 <ng-container *ngIf="flag">
                     <!-- the pokemon has a weakness:  -->
-                    <div style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: .3em; margin-top: .5em;">
-                        <div class="tag"
-                            [ngStyle]="{backgroundColor: colours[loser!.types[0].type.name]}">{{loser!.types[0].type.name | titlecase}}
+                    <div
+                        style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: .3em; margin-top: .5em;">
+                        <div class="tag" [ngStyle]="{backgroundColor: colours[loser!.types[0].type.name]}">
+                            {{loser!.types[0].type.name | titlecase}}
                         </div> has a weakness with
-                        <div class="tag"
-                            [ngStyle]="{backgroundColor: colours[winner!.types[0].type.name]}">{{winner!.types[0].type.name | titlecase}}
+                        <div class="tag" [ngStyle]="{backgroundColor: colours[winner!.types[0].type.name]}">
+                            {{winner!.types[0].type.name | titlecase}}
                         </div>
                     </div>
                 </ng-container>
             </div>
 
-    
+
         </div>
     </div>
 
     <div class="table">
-        <div class="row" *ngFor="let fighter of fighters, let i = index" [ngStyle]="{borderTop: i<1 ? '':'1px solid black'}">
-            
+        <div class="row" *ngFor="let fighter of fighters, let i = index"
+            [ngStyle]="{borderTop: i<1 ? '':'1px solid black'}">
+
             <img class="legenda" src="{{fighter.image[0]}}">
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <h1>{{fighter.name | titlecase}}</h1>
-                <div class="tag" [ngStyle]="{backgroundColor: colours[fighter.types[0].type.name]}">{{fighter.types[0].type.name | titlecase}}</div>
+                <div class="tag" [ngStyle]="{backgroundColor: colours[fighter.types[0].type.name]}">
+                    {{fighter.types[0].type.name | titlecase}}</div>
             </div>
             <div class="points">
                 <p>
@@ -57,7 +66,7 @@
                 <hr />
                 <p>
                     <span>Weight:</span> {{' '+fighter.weight}}
-                    
+
                 </p>
                 <hr />
                 <p>

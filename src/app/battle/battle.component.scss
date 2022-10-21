@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     margin: 1em;
-    max-height: 72vh;
+    height: 100%;
     border-radius: 10px;
     overflow-y: scroll;
 }
@@ -21,17 +21,7 @@
     overflow: hidden;
 }
 
-@media (min-width: 800px) {
-    .wrapper{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    .frame{
-        max-width: 70em;
-        max-height: 70em;
-    }
-}
+
 
 #enemy{
     top: 25%;
@@ -118,7 +108,9 @@ hr{
     margin: 0;
 }
 
-
+#icon{
+     cursor: pointer;
+}
 
 
 span{
@@ -190,6 +182,18 @@ h2{
 .tag{
     font-size: .9em;
 }
+}
+
+@media (min-width: 800px) {
+    .wrapper{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .frame{
+        max-width: 70em;
+        max-height: 70em;
+    }
 }
     
 

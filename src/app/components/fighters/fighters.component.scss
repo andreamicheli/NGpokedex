@@ -5,6 +5,13 @@
     width: fit-content;
 }
 
+.submain{
+    display: flex;
+    align-items: center;
+    gap: .2em;
+}
+
+
 .row{
     display: flex;
     flex-direction: row;
@@ -26,7 +33,6 @@
 
 
 .ready {
-    margin-inline: 1em;
     padding: .2em;
     height: 2em;
     width: max-content;
@@ -56,7 +62,11 @@
 }
 
 
-
+#icon{
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
+}
 
 
 

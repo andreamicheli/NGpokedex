@@ -15,6 +15,7 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding-inline: .5em;
+    position: relative;
 }
 
 img{
@@ -39,7 +40,7 @@ span{
 }
 
 .container{
-    position: fixed;
+    position: absolute;
     z-index: 100;
     background-color: white;
     width: 60vw;
@@ -49,8 +50,8 @@ span{
     gap: 1em;
     border-radius: 15px;
     padding: 1em;
-    left: 5em;
-    top: 11em;
+    left: 25%;
+    top: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -72,9 +73,6 @@ span{
 @media (max-width: 440px) {
     .main{
         font-size: .8em;
-    }
-    .container{
-        top: 13em;
     }
 }
 

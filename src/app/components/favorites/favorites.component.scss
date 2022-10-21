@@ -5,6 +5,13 @@
     width: 7em;
     margin-left: 1em;
 }
+
+.submain{
+    display: flex;
+    align-items: center;
+    gap: .2em;
+}
+
 .wrapper{
     margin-inline: 1em;
     padding: .2em;
@@ -17,6 +24,12 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding-inline: .5em;
+}
+
+#icon{
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
 }
 
 .container{
@@ -40,7 +53,7 @@ img{
 
 
 @media (max-width: 440px) {
-.main{
-    font-size: .9em;
-}
+    .main{
+        font-size: .9em;
+    }
 }

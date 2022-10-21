@@ -1,5 +1,10 @@
 <div class="main">
-    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000': '#ffffff'}">Favorites</div>
+    <div class="submain">
+        <mat-icon class="favico" aria-hidden="false" aria-label="favorite" fontIcon="{{'favorite'}}" id="icon"
+            [ngStyle]="{color: nav.current!=='view' ? '#000000': '#ffffff'}">
+        </mat-icon>
+        <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000': '#ffffff'}">Favorites</div>
+    </div>
     <div class="wrapper">
         <div class="container" *ngIf="favs.length>0 else nofav">
 

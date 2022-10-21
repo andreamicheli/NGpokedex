@@ -1,9 +1,7 @@
 .main{
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: fit-content;
-    position: relative;
 }
 .wrapper{
     padding-block: .2em;
@@ -18,6 +16,7 @@
     border-radius: 50%;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
 }
 
 .wrapper:hover{
@@ -51,14 +50,15 @@
     background-color: white;
     width: 60vw;
     max-width: 15em;
-    max-height: 4em;
+    // max-height: 4em;
     display: flex;
     border-radius: 15px;
     flex-direction: column;
     padding: 1em;
-    left: -10em;
-    top: 4em;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    right: 1em;
+    top: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
 .rowcontainer{
@@ -87,6 +87,12 @@ input{
 p{
     color:red;
     font-size: small;
+    margin: 0;
+    margin-top: 1em;
+}
+
+.big{
+    display: none;
 }
 
 // input:focus{
@@ -116,7 +122,19 @@ img{
     .main{
         font-size: .8em;
     }
+}
+
+@media (min-width: 980px){
     .colcontainer{
-        left: -16em;
+    display: none;        
+    }
+    .big{
+    display: block;
+    }
+    .wrapper{
+        display: none;
+    }
+    p{
+        margin: 0;
     }
 }
