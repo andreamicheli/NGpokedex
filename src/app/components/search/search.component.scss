@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: fit-content;
+    position: relative;
 }
 .wrapper{
     padding-block: .2em;
@@ -45,7 +46,7 @@
 }
 
 .colcontainer{
-    position: fixed;
+    position: absolute;
     z-index: 100;
     background-color: white;
     width: 60vw;
@@ -55,8 +56,8 @@
     border-radius: 15px;
     flex-direction: column;
     padding: 1em;
-    left: 40%;
-    top: 11em;
+    left: -10em;
+    top: 4em;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -115,7 +116,7 @@ img{
     .main{
         font-size: .8em;
     }
-    .container{
-        top: 13em;
+    .colcontainer{
+        left: -16em;
     }
 }
