@@ -15,6 +15,7 @@ export class ViewComponent implements OnInit {
   @Input() pokemon: Pokemon | undefined;
   @Input() change: any;
   @Input() setfav: any;
+  @Input() setview: any;
 
 
   ngOnInit(): void {

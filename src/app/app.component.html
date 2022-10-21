@@ -11,6 +11,7 @@
       [setSelected]="setSelected" *ngIf="!battle"></app-filter>
     <app-fighters [nav]="nav" [fighters]="fighters" [change]="change" [setbattle]="setbattle"></app-fighters>
     <app-addpoke [setadd]="setadd" [nav]="nav"></app-addpoke>
+    <app-search [nav]="nav" [colours]="colours" [change]="change"></app-search>
   </div>
 
   <div style="height:100%">
@@ -20,7 +21,7 @@
           [setfighter]="setfighter"></app-list>
       </ng-container>
       <ng-container *ngIf="nav.current==='view'">
-        <app-view [pokemon]="pokemon" [change]="change" [setfav]="setfav"></app-view>
+        <app-view [pokemon]="pokemon" [change]="change" [setfav]="setfav" [setview]="setview"></app-view>
       </ng-container>
       <ng-container *ngIf="nav.current==='fight'">
         <app-battle [fighters]="fighters" [colours]="colours"></app-battle>

@@ -2,11 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 7em;
-    margin-left: 1em;
+    width: fit-content;
 }
 .wrapper{
-    margin-inline: 1em;
     padding: .2em;
     height: 2em;
     width: max-content;

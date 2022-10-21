@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API, PokeGeneral, Pokemon } from '../pokemon';
 import { Observable, of, tap, catchError } from 'rxjs';
-import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -13,7 +13,7 @@ export class PokeapiService {
 
   private pokeUrl = 'https://pokeapi.co/api/v2/pokemon';  // URL to web api
   httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   getPokemon(name: string): Observable<Pokemon> {
@@ -22,9 +22,13 @@ export class PokeapiService {
         catchError(this.handleError<Pokemon>())
       );
   }
+
+  getPokemonNew(name: string): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.pokeUrl}/${name}`)
+  }
   getPokemonsGeneral(): Observable<API> {
     return this.http.get<API>(`${this.pokeUrl}?limit=100`)
-    .pipe(
+      .pipe(
         catchError(this.handleError<API>())
       );
   }

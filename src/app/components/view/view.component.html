@@ -1,7 +1,7 @@
 <ng-container *ngIf="!!pokemon else nopoke">
     <div class="header">
         <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
-            (click)="change($event, pokemon)"></mat-icon>
+            (click)="setview()"></mat-icon>
         <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
             <div style="display: flex; flex-direction: column;">
                 <h1>{{pokemon.name | titlecase }}</h1>

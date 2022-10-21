@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: fit-content;
 }
 .wrapper{
-    margin-inline: 1em;
-    padding: .2em;
-    height: 2em;
-    width: 1.2em;
-    font-size: 1em;
+    padding-block: .2em;
+    padding-inline: .3em;
+    height: fit-content;
+    width: fit-content;
+    font-size: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,7 @@
     border-radius: 50%;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding-inline: .5em;
+    font-weight: lighter;
 }
 
 .wrapper:hover{

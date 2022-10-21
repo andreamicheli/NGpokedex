@@ -16,6 +16,7 @@ import { BattleComponent } from './battle/battle.component';
 import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddpokeComponent } from './addpoke/addpoke.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddpokeComponent } from './addpoke/addpoke.component';
     FightersComponent,
     BattleComponent,
     AddComponent,
-    AddpokeComponent
+    AddpokeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

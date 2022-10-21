@@ -65,9 +65,13 @@ export class AppComponent implements OnInit {
 
   public change = (event: Event, pokemon: Pokemon) => {
     this.pokemon = pokemon;
+    if (this.nav.current === 'view') { this.nav.prev = 'list' }
+    else { this.nav.prev = this.nav.current; this.nav.current = 'view' }
+  }
+
+  public setview = () => {
     if (this.nav.current === 'view') { this.nav.current = this.nav.prev!; this.nav.prev = 'list' }
     else { this.nav.prev = this.nav.current; this.nav.current = 'view' }
-
   }
 
   public setadd = () => {

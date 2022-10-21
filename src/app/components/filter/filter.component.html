@@ -5,8 +5,8 @@
             <div class="placeholder" (click)="setmodal()" *ngIf="!!selected">{{selected | titlecase}}<span
                     *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
         </div>
-        <div class="placeholder" (click)="setmodal()" *ngIf="selected==null">Choose type <span
-                *ngIf="!modal">></span><span *ngIf="modal">v</span></div>
+        <div class="placeholder" (click)="setmodal()" *ngIf="selected==null">Choose<span *ngIf="!modal">></span><span
+                *ngIf="modal">v</span></div>
     </div>
     <div class="container" *ngIf="modal">
         <div *ngFor="let type of types; let i = index">
