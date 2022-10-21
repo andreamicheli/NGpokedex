@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Search</div>
+    <div class="wrapper">
+        <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}" id="icon"
+            (click)="modal=!modal"></mat-icon>
+    </div>
+
+    <div class="colcontainer" *ngIf="modal">
+        <div class="rowcontainer">
+            <div style="display: flex; align-items: center; gap: .2em">
+                <input type="text" [formControl]="name" (keyup.enter)="getPokemon()">
+                <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
+                    (click)="getPokemon()" id="nestedsearch"></mat-icon>
+            </div>
+            <div style="display: flex; align-items: center; max-width: 4em; max-height: 4em;">
+                <img *ngIf="image==='loading'"
+                    src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif">
+                <img *ngIf="image!=='' && image!=='loading'" src="{{pokemon!.image[0]}}"
+                    (click)="modal=!modal; change($event, pokemon)" [ngStyle]="{cursor:'pointer'}">
+            </div>
+        </div>
+        <p *ngIf="error!==''">{{error}}</p>
+    </div>
+
+</div>
