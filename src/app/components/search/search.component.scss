@@ -58,7 +58,6 @@
     right: 1em;
     top: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
 }
 
 .rowcontainer{
@@ -94,6 +93,41 @@ p{
 .big{
     display: none;
 }
+
+.suggestions{
+    margin-top: .5em;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    z-index: 200;
+    width: 100%;
+    padding: .5em;
+    border-radius: 15px;
+    gap: .5em;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.suggestion{
+    border-radius: 15px;
+    padding: .5em;
+    cursor: pointer;
+    background-color: #f4f7f8;
+}
+
+.suggestion:hover{
+    background-color: #8a97a0;
+}
+.suggestion:active{
+    background-color: #8a97a0;
+}
+
+hr{
+    width: 100%;
+}
+
+
 
 // input:focus{
 // 	background: rgba(255,255,255,.1);

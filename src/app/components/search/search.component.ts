@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Direction, Pokemon } from 'src/app/pokemon';
+import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { Direction, PokeGeneral, Pokemon } from 'src/app/pokemon';
 import { PokeapiService } from 'src/app/services/pokeapi.service';
+import { PokekeepService } from 'src/app/services/pokekeep.service';
 
 @Component({
   selector: 'app-search',
@@ -20,11 +22,17 @@ export class SearchComponent implements OnInit {
   image: string = '';
   error: string = '';
   pokemon: Pokemon | null = null;
+  private searchTerms = new Subject<string>();
+  // pokemon$!: Observable<Pokemon[]>;
+  suggestions: PokeGeneral[] = [];
 
   name = new FormControl('');
 
-  constructor(private pokeService: PokeapiService) { }
+  constructor(private pokeService: PokeapiService, private pokeKeep: PokekeepService) { }
 
+  search(term: string): void {
+    this.suggestions = this.pokeKeep.getpokemons(term).slice(0, 6)
+  }
 
   getPokemon() {
     this.error = '';
@@ -63,6 +71,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
+
+
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QueueScheduler } from 'rxjs/internal/scheduler/QueueScheduler';
 import { PokeGeneral, Pokemon, Direction } from './pokemon';
 import { PokeapiService } from './services/pokeapi.service';
+import { PokekeepService } from './services/pokekeep.service';
 
 
 
@@ -12,7 +13,7 @@ import { PokeapiService } from './services/pokeapi.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private pokeService: PokeapiService) { }
+  constructor(private pokeService: PokeapiService, private pokeKeep: PokekeepService) { }
 
   title = 'pokedex';
 
@@ -149,8 +150,12 @@ export class AppComponent implements OnInit {
       .subscribe(response => {
         this.pokemonsGeneral = response.results;
         // console.log(this.pokemonsGeneral);
+        this.pokeKeep.setpokemons(this.pokemonsGeneral)
         this.pokemonsGeneral = this.shuffle(this.pokemonsGeneral)
         response.results.forEach(pokemonGeneral => {
+
+          // for (let pokemonGeneral of response.results) {
+          //   while (this.pokemons.length < 100) {
           this.pokeService.getPokemon(pokemonGeneral.name)
             .subscribe((response) => {
               this.pokemons.push(
@@ -172,6 +177,11 @@ export class AppComponent implements OnInit {
               this.setTypes(this.pokemons)
             })
         })
+
+        //   }
+        // }
+        // this.pokeKeep.setpokemons(this.pokemons);
+
       });
   }
 

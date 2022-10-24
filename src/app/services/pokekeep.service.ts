@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../pokemon';
+import { Observable } from 'rxjs';
+import { PokeGeneral, Pokemon } from '../pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,15 @@ export class PokekeepService {
 
   constructor() { }
 
-  pokemons: Pokemon[] = [];
-  currentPoke: Pokemon = this.pokemons[0];
+  // pokemons$!: Observable<Pokemon[]>;
+  pokemons!: PokeGeneral[];
 
-  setpokemons(pokemons: Pokemon[]){
-    this.pokemons=pokemons;
+  getpokemons(name: string) {
+    return this.pokemons.filter(function (poke) { return poke.name.includes(name) })
   }
-  setCurrentPoke(pokemon: Pokemon){
-    this.currentPoke=pokemon;
+
+  setpokemons(input: PokeGeneral[]) {
+    this.pokemons = input;
   }
-  getpokemons(): Pokemon[]{
-    return this.pokemons;
-  }
-  getCurrentPoke(): Pokemon{
-    return this.currentPoke;
-  }
-  
+
 }

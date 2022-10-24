@@ -1,5 +1,5 @@
 <div class="main">
-    <div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
         <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Search</div>
         <div class="wrapper">
             <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}" id="icon"
@@ -10,11 +10,13 @@
             <div style="display: flex; flex-direction: column">
                 <div style="display: flex; max-height: 2em;">
                     <div style="display: flex; align-items: center; gap: .2em">
-                        <input type="text" [formControl]="name" (keyup.enter)="getPokemon()">
+                        <input type="text" [formControl]="name" (keyup.enter)="getPokemon()" #searchBox id="search-box"
+                            (input)="search(searchBox.value)">
                         <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
                             (click)="getPokemon()" id="nestedsearch"
                             [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}"></mat-icon>
                     </div>
+
                     <div style="display: flex; align-items: center; max-width: 4em; max-height: 4em;">
                         <img *ngIf="image==='loading'"
                             src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif">
@@ -23,8 +25,15 @@
                     </div>
                     <p style="width: 15em;" *ngIf="error!==''"
                         [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">
-                        {{error}}</p>
+                        {{error}}
+                    </p>
                 </div>
+            </div>
+        </div>
+
+        <div class="suggestions" *ngIf="!!this.name.value">
+            <div *ngFor="let pokemon of suggestions" class="suggestion">
+                {{pokemon.name | titlecase}}
             </div>
         </div>
 
@@ -34,10 +43,20 @@
     <div class="colcontainer" *ngIf="modal">
         <div class="rowcontainer">
             <div style="display: flex; align-items: center; gap: .2em">
-                <input type="text" [formControl]="name" (keyup.enter)="getPokemon()">
+                <input type="text" [formControl]="name" (keyup.enter)="getPokemon()" #searchBox id="search-box"
+                    (input)="search(searchBox.value)">
                 <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
                     (click)="getPokemon()" id="nestedsearch"></mat-icon>
             </div>
+
+            <ul>
+                <li *ngFor="let pokemon of suggestions">
+                    <a>
+                        {{pokemon.name}}
+                    </a>
+                </li>
+            </ul>
+
             <div style="display: flex; align-items: center; max-width: 4em; max-height: 4em;">
                 <img *ngIf="image==='loading'"
                     src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif">
