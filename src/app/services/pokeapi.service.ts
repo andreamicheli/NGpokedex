@@ -37,8 +37,8 @@ export class PokeapiService {
       );
   }
 
-  getImage(): Observable<{ id: number, sprite: string }[]> {
-    return this.http.get<{ id: number, sprite: string }[]>(this.imageUrl)
+  getImage(): Observable<{ id: number, sprite: string }> {
+    return this.http.get<{ id: number, sprite: string }>(`${this.imageUrl}/${Math.floor(Math.random() * 22) + 1}`)
   }
 
   private handleError<T>(result?: T) {

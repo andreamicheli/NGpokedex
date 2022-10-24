@@ -166,6 +166,7 @@ export class AppComponent implements OnInit {
                   weight: response.weight,
                   fav: false,
                   fight: false,
+                  new: false,
                 }
               );
               this.setTypes(this.pokemons)

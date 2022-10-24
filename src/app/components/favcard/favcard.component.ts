@@ -13,7 +13,17 @@ export class FavcardComponent implements OnInit {
   @Input() setfav: any;
   @Input() selected: string | null;
   @Input() setfighter: any;
-  
+
+  show: boolean = false;
+
+  changeshow = () => {
+    this.show = true;
+
+    setTimeout(() => {
+      this.show = false;
+    }, 2000);
+  }
+
   constructor() { }
 
   ngOnInit(): void {

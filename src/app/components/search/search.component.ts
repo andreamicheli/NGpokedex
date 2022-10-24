@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private pokeService: PokeapiService) { }
 
+
   getPokemon() {
     this.error = '';
     this.image = 'loading';
@@ -45,6 +46,7 @@ export class SearchComponent implements OnInit {
             weight: response.weight,
             fav: false,
             fight: false,
+            new: false
           }
           this.image = this.pokemon.image[0]
         },

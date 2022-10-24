@@ -51,8 +51,14 @@
         </form>
 
         <div class="imgcontainer">
-            <img *ngIf="!pokemonForm.valid" src="../../assets/silhouette.jpeg" alt="new pokemon image">
-            <img *ngIf="pokemonForm.valid" src="{{image}}" alt="new pokemon image">
+            <img *ngIf="!pokemonForm.valid || !(!!image)" src="../../assets/silhouette.jpeg" alt="new pokemon image">
+            <ng-container *ngIf="pokemonForm.valid">
+                <img src="../../assets/change.png" alt="change pokemon image" id="changeimg"
+                    [ngStyle]="{opacity: hover ? '.8':'0' }" (mouseenter)="hover=true" (mouseleave)="hover=false"
+                    (click)="getImage()">
+                <img src="{{image}}" alt="new pokemon image" id="apiimg" (mouseenter)="hover=true"
+                    (mouseleave)="hover=false">
+            </ng-container>
         </div>
     </div>
 

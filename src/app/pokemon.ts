@@ -13,6 +13,8 @@ export interface Pokemon {
     color: string;
     fav?: boolean;
     fight?: boolean;
+    new: boolean;
+
 
     abilities?: any;
     base_experience: number;
