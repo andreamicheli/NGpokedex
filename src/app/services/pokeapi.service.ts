@@ -12,9 +12,13 @@ export class PokeapiService {
   constructor(private http: HttpClient) { }
 
   private pokeUrl = 'https://pokeapi.co/api/v2/pokemon';  // URL to web api
+  private imageUrl = '/api/images'; //URL to static local api
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+
 
   getPokemon(name: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.pokeUrl}/${name}`)
@@ -33,11 +37,16 @@ export class PokeapiService {
       );
   }
 
+  getImage(): Observable<{ id: number, sprite: string }[]> {
+    return this.http.get<{ id: number, sprite: string }[]>(this.imageUrl)
+  }
+
   private handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);
     }
   }
+
 
 }

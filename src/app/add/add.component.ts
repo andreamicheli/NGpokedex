@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PokeapiService } from '../services/pokeapi.service';
 
 @Component({
   selector: 'app-add',
@@ -16,8 +17,9 @@ export class AddComponent implements OnInit {
   selected: string | null = '';
   modal: boolean = false;
   hovered: number = -1;
+  image: string = ''
 
-  constructor() { }
+  constructor(private pokeService: PokeapiService) { }
 
   public setmodal = () => {
     this.modal = !this.modal;
@@ -47,8 +49,8 @@ export class AddComponent implements OnInit {
     console.log(this.selected)
   }
 
-  returnStyle() {
-
+  public getImage = () => {
+    this.pokeService.getImage().subscribe((response) => { console.log(response); this.image = response[0].sprite })
   }
 
   onSubmit() {
@@ -57,6 +59,7 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getImage();
   }
 
 }

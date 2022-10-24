@@ -50,8 +50,9 @@
             <button type="submit" [disabled]="pokemonForm.invalid">Done</button>
         </form>
 
-        <div class="imgcontainer" style="height: 100%;">
-            <img src="../../assets/silhouette.jpeg" alt="new pokemon image">
+        <div class="imgcontainer">
+            <img *ngIf="!pokemonForm.valid" src="../../assets/silhouette.jpeg" alt="new pokemon image">
+            <img *ngIf="pokemonForm.valid" src="{{image}}" alt="new pokemon image">
         </div>
     </div>
 
