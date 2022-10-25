@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Pokemon } from '../pokemon';
-import { PokeapiService } from '../services/pokeapi.service';
+import { Pokemon } from '../../pokemon';
+import { PokeapiService } from '../../services/pokeapi.service';
 
 @Component({
   selector: 'app-add',

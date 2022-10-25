@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { PokeGeneral, Pokemon } from '../pokemon';
+import { PokeGeneral } from '../pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,6 @@ export class PokekeepService {
 
   constructor() { }
 
-  // pokemons$!: Observable<Pokemon[]>;
   pokemons!: PokeGeneral[];
 
   getpokemons(name: string) {

@@ -13,8 +13,6 @@
             <div class="tag" (click)="setType(type)" (mouseover)="hovered = i" (mouseout)="hovered = -1"
                 [ngStyle]="(hovered === i || selected === type) ? {backgroundColor: colours[type], color: '#ffffff'} : {}">
                 {{type | titlecase}}</div>
-            <!-- <div class="tag" (click)="filter(type); selected=type; setmodal()"
-            ngStyle="{backgroundColor: colours[type]}">{{type}}</div> -->
         </div>
     </div>
 </div>

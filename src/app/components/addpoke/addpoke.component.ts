@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Direction } from '../pokemon';
+import { Direction } from '../../pokemon';
 
 @Component({
   selector: 'app-addpoke',

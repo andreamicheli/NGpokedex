@@ -19,7 +19,6 @@ export class ViewComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.pokemon = this.pokeKeep.getCurrentPoke()
   }
 
 }

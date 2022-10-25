@@ -149,13 +149,10 @@ export class AppComponent implements OnInit {
     this.pokeService.getPokemonsGeneral()
       .subscribe(response => {
         this.pokemonsGeneral = response.results;
-        // console.log(this.pokemonsGeneral);
         this.pokeKeep.setpokemons(this.pokemonsGeneral)
         this.pokemonsGeneral = this.shuffle(this.pokemonsGeneral)
         response.results.forEach(pokemonGeneral => {
 
-          // for (let pokemonGeneral of response.results) {
-          //   while (this.pokemons.length < 100) {
           this.pokeService.getPokemon(pokemonGeneral.name)
             .subscribe((response) => {
               this.pokemons.push(
@@ -177,11 +174,6 @@ export class AppComponent implements OnInit {
               this.setTypes(this.pokemons)
             })
         })
-
-        //   }
-        // }
-        // this.pokeKeep.setpokemons(this.pokemons);
-
       });
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from '../pokemon';
+import { Pokemon } from '../../pokemon';
 
 @Component({
   selector: 'app-battle',
@@ -41,12 +41,6 @@ export class BattleComponent implements OnInit {
     'dragon': ['ice', 'dragon', 'fairy'],
     'fairy': ['poison', 'steel'],
     'dark': ['fighting', 'bug', 'fairy']
-  }
-
-  weakcalc: any = (val: number, f1: Pokemon, f2: Pokemon) => {
-    // if (this.typeflag.length>0) return;
-    // if(this.weaknesses[f1.types[0].type.name].includes(f2.types[0].type.name)) {this.typeflag=[f1.types[0].type.name,f2.types[0].type.name]; return val/2;}
-    // else {this.typeflag=[]; return val;}
   }
 
   public calc = () => {

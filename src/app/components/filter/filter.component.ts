@@ -41,10 +41,6 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  // public filter = (type: string)=>{
-  //  this.filtered = (this.pokemons.filter((pokemon)=>pokemon.types[0].type.name===type || (!!pokemon.types[1] && pokemon.types[1].type.name===type)))
-  // }
-
   ngOnInit(): void {
   }
 

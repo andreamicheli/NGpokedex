@@ -23,7 +23,6 @@ export class SearchComponent implements OnInit {
   error: string = '';
   pokemon: Pokemon | null = null;
   private searchTerms = new Subject<string>();
-  // pokemon$!: Observable<Pokemon[]>;
   suggestions: PokeGeneral[] = [];
 
   name = new FormControl('');

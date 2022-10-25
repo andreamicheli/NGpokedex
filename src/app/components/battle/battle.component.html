@@ -1,6 +1,4 @@
 <div class="wrapper">
-    <!-- <div style="position: absolute; height: 43vh; width: 82vw; top:13em; background-color: transparent; z-index: 300;"
-    (click)="(hover==true)?fight=true:''"></div> -->
     <div style="display: flex; height: fit-content; justify-content: center; flex-direction: column; gap: 1em">
         <mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_backward" id="icon"
             (click)="setbattle()"></mat-icon>
@@ -32,7 +30,6 @@
                     a score of <span>{{totlose}}</span></p>
 
                 <ng-container *ngIf="flag">
-                    <!-- the pokemon has a weakness:  -->
                     <div
                         style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: .3em; margin-top: .5em;">
                         <div class="tag" [ngStyle]="{backgroundColor: colours[loser!.types[0].type.name]}">

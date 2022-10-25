@@ -8,9 +8,6 @@
 .header{
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    // align-items: center;
-    // width: 100%;
     gap: 1em;
     height: fit-content;
     margin-bottom: 2em;
@@ -25,7 +22,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
 }
 .sector{
     width: 100%;
@@ -242,14 +238,6 @@ span{
     .imgcontainer{
         height: 70%;
     }
-    // img{
-    //     width: 100%;
-    //     max-width: 50em;
-    //     max-height: 50em;
-    // }
-    // .imgcontainer{
-    //     width: fit-content;
-    // }
 }
 
 @media (max-height: 740px){
