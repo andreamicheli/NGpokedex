@@ -6,6 +6,7 @@
     justify-content: space-between;
     min-width: 18em;
     margin-bottom: 2em;
+    max-width: 230px;
 }
 
 .card:hover{
@@ -89,7 +90,13 @@ p{
 @media (min-width: 800px) {
     .card{
         margin-left: 2em;
-        max-width: 250px;
     }
 }
+
+@media (min-width: 800px) {
+    .card{
+        width: 340px;
+    }
+}
+
 

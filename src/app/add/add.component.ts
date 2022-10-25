@@ -21,6 +21,7 @@ export class AddComponent implements OnInit {
   hovered: number = -1;
   image: string = '';
   hover: boolean = false;
+  loading: boolean = false;
 
   constructor(private pokeService: PokeapiService) { }
 
@@ -51,12 +52,12 @@ export class AddComponent implements OnInit {
   }
 
   public getImage = () => {
-    this.pokeService.getImage().subscribe((response) => { this.image = response.sprite })
+    this.pokeService.getImage().subscribe((response) => { this.image = response.sprite; this.loading = false })
   }
 
   onSubmit() {
-    console.log(this.pokemonForm.value)
 
+    if (!(!!this.image)) this.image = "https://upload.wikimedia.org/wikipedia/en/5/5a/Black_question_mark.png"
     this.pokemons.push({
       ...this.pokemonForm.value,
       name: this.pokemonForm.get('name')!.value!,
