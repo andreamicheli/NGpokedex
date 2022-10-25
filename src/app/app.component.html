@@ -32,8 +32,7 @@
 
   <div style="height:100%">
 
-
-    <ng-container *ngIf="pokemons.length>1 else nopokemons">
+    <ng-container *ngIf="pokemons.length>0 else nopokemons">
       <ng-container *ngIf="nav.current==='list'">
         <app-list [pokemons]="pokemons" [change]="change" [setfav]="setfav" [selected]="selected"
           [setfighter]="setfighter"></app-list>
@@ -48,6 +47,7 @@
         <app-add [setadd]="setadd" [types]="types" [colours]="colours" [pokemons]="pokemons"></app-add>
       </ng-container>
     </ng-container>
+
   </div>
 
 

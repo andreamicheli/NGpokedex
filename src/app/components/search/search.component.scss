@@ -50,7 +50,6 @@
     background-color: white;
     width: 60vw;
     max-width: 15em;
-    // max-height: 4em;
     display: flex;
     border-radius: 15px;
     flex-direction: column;
@@ -58,6 +57,7 @@
     right: 1em;
     top: 100%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-size: .8em;
 }
 
 .rowcontainer{
@@ -94,12 +94,13 @@ p{
     display: none;
 }
 
-.suggestions{
+.suggestionsb{
     margin-top: .5em;
     background-color: white;
     position: absolute;
     top: 100%;
     z-index: 200;
+    max-width: 15em;
     width: 100%;
     padding: .5em;
     border-radius: 15px;
@@ -109,7 +110,32 @@ p{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.suggestion{
+.suggestionb{
+    border-radius: 15px;
+    padding: .5em;
+    cursor: pointer;
+    background-color: #f4f7f8;
+}
+
+.suggestionsm{
+    position: absolute;
+    margin-top: .1em;
+    background-color: white;
+    position: absolute;
+    top: 200%;
+    z-index: 200;
+    right: 1em;
+    width: 100%;
+    max-width: 10em;
+    padding: .5em;
+    border-radius: 15px;
+    gap: .5em;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.suggestionm{
     border-radius: 15px;
     padding: .5em;
     cursor: pointer;
@@ -127,36 +153,42 @@ hr{
     width: 100%;
 }
 
-
-
-// input:focus{
-// 	background: rgba(255,255,255,.1);
-// 	border: none;
-// 	border-radius: 15px;
-// 	font-size: 15px;
-// 	outline: 0;
-// 	width: 100%;
-// 	box-sizing: border-box; 
-// 	-webkit-box-sizing: border-box;
-// 	-moz-box-sizing: border-box; 
-// 	background-color: #e8eeef;
-// 	color:#8a97a0;
-// 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-// 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-// }
-
 img{
     max-width: 100%;
     max-height: 100%;
 }
 
+.etichetta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
 
 
 @media (max-width: 440px) {
-    .main{
+    .nestedsearch{
+        display: none;
+    }
+    .etichetta{
         font-size: .8em;
     }
 }
+
+@media (max-width: 980px){
+    .suggestionsb,
+    .suggestionb{
+        display: none;
+        opacity: 0;
+
+    }
+    .suggestionsm,
+    .suggestionm{
+        display: flex;
+    }
+    
+}
+
 
 @media (min-width: 980px){
     .colcontainer{
@@ -170,5 +202,14 @@ img{
     }
     p{
         margin: 0;
+    }
+    .suggestionsb,
+    .suggestionb{
+        display: flex;
+    }
+    .suggestionsm,
+    .suggestionm{
+        display: none;
+        opacity: 0;
     }
 }

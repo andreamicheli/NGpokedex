@@ -70,6 +70,12 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  setinput(poke: string) {
+    this.name.setValue(poke);
+    this.getPokemon();
+    this.suggestions = []
+  }
+
   ngOnInit(): void {
 
   }

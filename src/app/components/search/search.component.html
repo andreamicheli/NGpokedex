@@ -1,5 +1,5 @@
 <div class="main">
-    <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+    <div class="etichetta">
         <div class="label" [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}">Search</div>
         <div class="wrapper">
             <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}" id="icon"
@@ -11,7 +11,7 @@
                 <div style="display: flex; max-height: 2em;">
                     <div style="display: flex; align-items: center; gap: .2em">
                         <input type="text" [formControl]="name" (keyup.enter)="getPokemon()" #searchBox id="search-box"
-                            (input)="search(searchBox.value)">
+                            (input)="search(searchBox.value)" autocomplete="off">
                         <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
                             (click)="getPokemon()" id="nestedsearch"
                             [ngStyle]="{color: nav.current!=='view' ? '#000000':'#ffffff'}"></mat-icon>
@@ -31,8 +31,8 @@
             </div>
         </div>
 
-        <div class="suggestions" *ngIf="!!this.name.value">
-            <div *ngFor="let pokemon of suggestions" class="suggestion">
+        <div class="suggestionsb" *ngIf="!!this.name.value && suggestions.length>0">
+            <div *ngFor="let pokemon of suggestions" class="suggestionb" (click)="setinput(pokemon.name)">
                 {{pokemon.name | titlecase}}
             </div>
         </div>
@@ -44,18 +44,10 @@
         <div class="rowcontainer">
             <div style="display: flex; align-items: center; gap: .2em">
                 <input type="text" [formControl]="name" (keyup.enter)="getPokemon()" #searchBox id="search-box"
-                    (input)="search(searchBox.value)">
+                    (input)="search(searchBox.value)" (keyup.esc)="suggestions = []">
                 <mat-icon class="favico" aria-hidden="false" aria-label="search" fontIcon="{{'search'}}"
                     (click)="getPokemon()" id="nestedsearch"></mat-icon>
             </div>
-
-            <ul>
-                <li *ngFor="let pokemon of suggestions">
-                    <a>
-                        {{pokemon.name}}
-                    </a>
-                </li>
-            </ul>
 
             <div style="display: flex; align-items: center; max-width: 4em; max-height: 4em;">
                 <img *ngIf="image==='loading'"
@@ -65,6 +57,11 @@
             </div>
         </div>
         <p *ngIf="error!==''">{{error}}</p>
+    </div>
+    <div class="suggestionsm" *ngIf="!!this.name.value && suggestions.length>0 && modal">
+        <div *ngFor="let pokemon of suggestions" class="suggestionm" (click)="setinput(pokemon.name)">
+            {{pokemon.name | titlecase}}
+        </div>
     </div>
 
 

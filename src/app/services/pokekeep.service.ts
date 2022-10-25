@@ -13,7 +13,7 @@ export class PokekeepService {
   pokemons!: PokeGeneral[];
 
   getpokemons(name: string) {
-    return this.pokemons.filter(function (poke) { return poke.name.includes(name) })
+    return this.pokemons.filter(function (poke) { return poke.name.includes(name.trim()) })
   }
 
   setpokemons(input: PokeGeneral[]) {
